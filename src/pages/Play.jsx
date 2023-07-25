@@ -17,14 +17,26 @@ export function Play() {
   const { secondLeft, start } = Timer();
 
   useEffect(() => {
-    if (currQuestion < questions.length) {
-      setOption([questions[currQuestion].correct_answer, ...questions[currQuestion].incorrect_answers]);
-      start(15);
-      if (currQuestion !== 0) {
-        selectedOption === questions[currQuestion - 1].correct_answer ? setTotalCorrect(totalCorrect + 1) : setTotalCorrect(totalCorrect);
+    if (currQuestion === 0) {
+      const timer = setTimeout(() => {
+        startUp();
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    } else {
+      if (currQuestion < questions.length) {
+        startUp();
+        if (currQuestion !== 0) {
+          selectedOption === questions[currQuestion - 1].correct_answer ? setTotalCorrect(totalCorrect + 1) : setTotalCorrect(totalCorrect);
+        }
       }
     }
   }, [currQuestion]);
+
+  function startUp() {
+    setOption([questions[currQuestion]?.correct_answer, ...questions[currQuestion].incorrect_answers]);
+    start(15);
+  }
 
   function handleSelect(value) {
     setSelectedOption(value);
@@ -36,8 +48,10 @@ export function Play() {
       <div className="container-play">
         <nav>
           <div className="sign">
-            {currQuestion >= 10 ? (
-              <p>10/{questions.length}</p>
+            {currQuestion >= questions.length ? (
+              <p>
+                {questions.length}/{questions.length}
+              </p>
             ) : (
               <p>
                 {currQuestion + 1}/{questions.length}

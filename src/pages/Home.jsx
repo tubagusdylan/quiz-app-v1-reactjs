@@ -38,7 +38,6 @@ export function Home() {
     setCategory(9);
     setDifficulty("");
     setType("");
-    console.log(questions);
   }
 
   return (
