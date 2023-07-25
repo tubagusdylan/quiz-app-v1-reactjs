@@ -1,7 +1,7 @@
 {
-  "name": "05-quiz-app",
+  "name": "05-quiz-app-2",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
