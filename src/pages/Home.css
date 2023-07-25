@@ -1,0 +1,32 @@
+.container-home {
+  width: 100%;
+  height: 100vh;
+  padding-top: 15rem;
+  background-color: whitesmoke;
+  text-align: center;
+}
+
+.container-home h1 {
+  font-size: 50px;
+  margin-bottom: 30px;
+}
+
+.button-home {
+  font-size: 25px;
+  padding: 10px 30px;
+  border-radius: 50px;
+  background-color: rgb(47, 47, 184);
+  border: none;
+  cursor: pointer;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+}
+
+span {
+  display: inline-block;
+  margin-top: 20px;
+  cursor: pointer;
+}

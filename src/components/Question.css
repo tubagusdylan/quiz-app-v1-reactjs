@@ -1,0 +1,36 @@
+.result {
+  width: 300px;
+  margin: 10px auto;
+  text-align: center;
+  padding: 10px;
+}
+
+.btn-result {
+  padding: 5px 10px;
+  border: none;
+  background-color: rgb(47, 47, 184);
+  color: white;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.result-body {
+  margin-top: 20px;
+}
+
+.result-body h2 {
+  font-size: 30px;
+}
+
+.result-body p {
+  font-size: 18px;
+}
+
+.result h1 {
+  font-size: 50px;
+  color: rgb(18, 210, 18);
+}
+
+Link {
+  color: white;
+}
