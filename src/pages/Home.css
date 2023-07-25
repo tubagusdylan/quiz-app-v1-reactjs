@@ -73,3 +73,8 @@
 .button-home:active {
   background-color: rgb(112, 94, 35);
 }
+
+.link {
+  display: block;
+  width: 100%;
+}
