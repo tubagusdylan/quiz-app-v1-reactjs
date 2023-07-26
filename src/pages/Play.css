@@ -26,6 +26,13 @@ nav h2 {
   font-size: 30px;
 }
 
+.timer-bar {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to left, #fd2323, rgb(204, 230, 60));
+  transition: width ease;
+}
+
 .question-body {
   width: 100%;
   padding: 10px;
@@ -84,4 +91,21 @@ nav h2 {
 
 button:active {
   background-color: rgb(71, 69, 77);
+}
+
+@media (min-width: 992px) {
+  .wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .option-container {
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .option-item {
+    width: 45%;
+    margin: 20px 20px;
+  }
 }

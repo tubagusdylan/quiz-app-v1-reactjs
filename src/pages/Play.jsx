@@ -16,12 +16,13 @@ export function Play() {
   const [totalCorrect, setTotalCorrect] = useState(0);
 
   const { secondLeft, start } = Timer();
+  const bar = (secondLeft / 200) * 100;
 
   useEffect(() => {
     if (currQuestion === 0) {
       const timer = setTimeout(() => {
         startUp();
-        start(150);
+        start(200);
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -48,7 +49,7 @@ export function Play() {
     <>
       <div className="container-play">
         {questions.length !== 0 ? (
-          <>
+          <div className="wrapper">
             <nav>
               <div className="sign">
                 <p hidden={currQuestion >= questions.length || secondLeft === 0}>
@@ -62,6 +63,7 @@ export function Play() {
                 <p hidden={currQuestion >= questions.length || secondLeft === 0}>{secondLeft}</p>
               </div>
             </nav>
+            <div className="timer-bar" style={{ width: `${bar}%` }} hidden={currQuestion >= questions.length || secondLeft === 0}></div>
             <Question
               question={questions}
               option={option}
@@ -73,7 +75,7 @@ export function Play() {
               totalCorrect={totalCorrect}
               secondLeft={secondLeft}
             />
-          </>
+          </div>
         ) : (
           <>
             <h1 className="name">
