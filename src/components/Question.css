@@ -6,12 +6,20 @@
 }
 
 .btn-result {
+  width: 130px;
   padding: 5px 10px;
   border: none;
-  background-color: rgb(47, 47, 184);
+  background-color: rgb(205, 99, 57);
   color: white;
   border-radius: 20px;
   font-size: 16px;
+  cursor: pointer;
+}
+
+.link-result {
+  display: block;
+  width: 130px;
+  margin: 0 auto;
 }
 
 .result-body {
@@ -28,9 +36,5 @@
 
 .result h1 {
   font-size: 50px;
-  color: rgb(18, 210, 18);
-}
-
-Link {
-  color: white;
+  color: rgb(66, 239, 66);
 }

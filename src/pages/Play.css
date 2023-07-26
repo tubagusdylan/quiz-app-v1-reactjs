@@ -4,11 +4,22 @@
   color: white;
 }
 
+.name {
+  font-size: 36px;
+  padding-top: 5rem;
+  color: rgb(249, 133, 249);
+  text-align: center;
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
+}
+
+nav h2 {
+  font-size: 30px;
 }
 
 .question-body {
@@ -20,6 +31,10 @@ nav {
   text-align: center;
   font-size: 24px;
   margin: 30px 0;
+}
+
+.question-body p {
+  text-align: center;
 }
 
 .option-container {

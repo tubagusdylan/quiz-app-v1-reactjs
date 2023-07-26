@@ -29,6 +29,10 @@ export function Home() {
     setType(e.target.value);
   }
 
+  function handleUsername(e) {
+    setUsername(e.target.value);
+  }
+
   async function handleStart(category, totalQuestions, difficulty, type) {
     const result = await getQuizList(category, totalQuestions, difficulty, type);
     questions.push(...result);
@@ -48,7 +52,7 @@ export function Home() {
           <label htmlFor="name" className="label">
             Username
           </label>
-          <input type="text" id="name" name="name" className="input-name" required onChange={({ target }) => setUsername(target.value)} value={username} />
+          <input type="text" id="name" name="name" className="input-name" required onChange={handleUsername} value={username} />
           <label htmlFor="total-questions" className="label">
             Number of Questions
           </label>

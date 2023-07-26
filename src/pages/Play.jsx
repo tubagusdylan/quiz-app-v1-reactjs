@@ -7,6 +7,7 @@ import { Loader } from "../components/Loading";
 import { Timer } from "../utils/Timer";
 import { Question } from "../components/Question";
 import { shuffle } from "../utils/shuffle";
+import { user } from "../api/dataUser";
 import "./Play.css";
 
 export function Play() {
@@ -51,21 +52,15 @@ export function Play() {
           <>
             <nav>
               <div className="sign">
-                {currQuestion >= questions.length ? (
-                  <p>
-                    {questions.length}/{questions.length}
-                  </p>
-                ) : (
-                  <p>
-                    {currQuestion + 1}/{questions.length}
-                  </p>
-                )}
+                <p hidden={currQuestion >= questions.length}>
+                  {currQuestion + 1}/{questions.length}
+                </p>
               </div>
               <div>
                 <h2>Quiz</h2>
               </div>
               <div className="time">
-                <p>{secondLeft}</p>
+                <p hidden={currQuestion >= questions.length}>{secondLeft}</p>
               </div>
             </nav>
             <Question
@@ -80,7 +75,13 @@ export function Play() {
             />
           </>
         ) : (
-          <Loader />
+          <>
+            <h1 className="name">
+              Hello
+              <br /> Are you ready?
+            </h1>
+            <Loader />
+          </>
         )}
       </div>
     </>

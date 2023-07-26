@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./Question.css";
 import { Link } from "react-router-dom";
 import { questions } from "../api/dataQuestion";
+import { user } from "../api/dataUser";
 
 export function Question(props) {
   const { question, option, currQuestion, onSelect, selectedOption, totalCorrect } = props;
@@ -19,6 +20,7 @@ export function Question(props) {
 
   function handleCleanup() {
     questions.splice(0, questions.length);
+    user.name = "";
     setTotal(0);
   }
 
@@ -27,6 +29,7 @@ export function Question(props) {
       <div className="question-body">
         {currQuestion < question.length ? (
           <>
+            <p>Player: {user.name ? user.name : "Unknown"}</p>
             <h3>{question[currQuestion].question}</h3>
             <div className="option-container">
               {option.map((value, index) => {
@@ -43,15 +46,15 @@ export function Question(props) {
             <button onClick={handleResult} className="btn-result" hidden={onShow}>
               Show Result
             </button>
-            <button hidden={!onShow} className="btn-result" onClick={handleCleanup}>
-              <Link className="link" to="/">
+            <Link className="link-result" to="/">
+              <button hidden={!onShow} className="btn-result" onClick={handleCleanup}>
                 Back to Home
-              </Link>
-            </button>
+              </button>
+            </Link>
             <div hidden={!onShow} className="result-body">
               <h2>Result</h2>
               <p>Your result</p>
-              <h1>{(total + totalCorrect) * 10}</h1>
+              <h1>{((total + totalCorrect) / question.length) * 100}</h1>
             </div>
           </div>
         )}
