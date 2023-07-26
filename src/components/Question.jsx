@@ -8,7 +8,7 @@ import { questions } from "../api/dataQuestion";
 import { user } from "../api/dataUser";
 
 export function Question(props) {
-  const { question, option, currQuestion, onSelect, selectedOption, totalCorrect } = props;
+  const { question, option, currQuestion, onSelect, selectedOption, totalCorrect, secondLeft } = props;
 
   const [total, setTotal] = useState(totalCorrect);
   const [onShow, setOnShow] = useState(false);
@@ -27,7 +27,7 @@ export function Question(props) {
   return (
     <>
       <div className="question-body">
-        {currQuestion < question.length ? (
+        {currQuestion < question.length && secondLeft !== 0 ? (
           <>
             <p>Player: {user.name ? user.name : "Unknown"}</p>
             <h3>{question[currQuestion].question}</h3>
@@ -52,9 +52,13 @@ export function Question(props) {
               </button>
             </Link>
             <div hidden={!onShow} className="result-body">
-              <h2>Result</h2>
               <p>Your result</p>
-              <h1>{((total + totalCorrect) / question.length) * 100}</h1>
+              <div className="result-child">
+                <h2>Correct: {total + totalCorrect}</h2>
+                <h2>Incorrect: {currQuestion - (total + totalCorrect)}</h2>
+                <h2>Total answer: {currQuestion}</h2>
+              </div>
+              <h1>{Math.round(((total + totalCorrect) / question.length) * 100)}</h1>
             </div>
           </div>
         )}

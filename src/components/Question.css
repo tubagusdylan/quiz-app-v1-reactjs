@@ -35,6 +35,10 @@
 }
 
 .result h1 {
-  font-size: 50px;
+  font-size: 70px;
   color: rgb(66, 239, 66);
+}
+
+.result-child {
+  margin-top: 20px;
 }

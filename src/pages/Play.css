@@ -4,6 +4,10 @@
   color: white;
 }
 
+.container-play h2 {
+  font-size: 24px;
+}
+
 .name {
   font-size: 36px;
   padding-top: 5rem;

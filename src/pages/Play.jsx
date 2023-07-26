@@ -7,7 +7,6 @@ import { Loader } from "../components/Loading";
 import { Timer } from "../utils/Timer";
 import { Question } from "../components/Question";
 import { shuffle } from "../utils/shuffle";
-import { user } from "../api/dataUser";
 import "./Play.css";
 
 export function Play() {
@@ -22,6 +21,7 @@ export function Play() {
     if (currQuestion === 0) {
       const timer = setTimeout(() => {
         startUp();
+        start(150);
       }, 2000);
 
       return () => clearTimeout(timer);
@@ -37,7 +37,6 @@ export function Play() {
 
   function startUp() {
     setOption(shuffle([questions[currQuestion]?.correct_answer, ...questions[currQuestion].incorrect_answers]));
-    start(15);
   }
 
   function handleSelect(value) {
@@ -52,15 +51,15 @@ export function Play() {
           <>
             <nav>
               <div className="sign">
-                <p hidden={currQuestion >= questions.length}>
+                <p hidden={currQuestion >= questions.length || secondLeft === 0}>
                   {currQuestion + 1}/{questions.length}
                 </p>
               </div>
               <div>
-                <h2>Quiz</h2>
+                <h2>{currQuestion < questions.length ? questions[currQuestion].category : "Results"}</h2>
               </div>
               <div className="time">
-                <p hidden={currQuestion >= questions.length}>{secondLeft}</p>
+                <p hidden={currQuestion >= questions.length || secondLeft === 0}>{secondLeft}</p>
               </div>
             </nav>
             <Question
@@ -72,6 +71,7 @@ export function Play() {
               }}
               selectedOption={selectedOption}
               totalCorrect={totalCorrect}
+              secondLeft={secondLeft}
             />
           </>
         ) : (

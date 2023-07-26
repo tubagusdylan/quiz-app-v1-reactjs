@@ -52,7 +52,7 @@ export function Home() {
           <label htmlFor="name" className="label">
             Username
           </label>
-          <input type="text" id="name" name="name" className="input-name" required onChange={handleUsername} value={username} />
+          <input type="text" id="name" name="name" className="input-name" onChange={handleUsername} value={username} />
           <label htmlFor="total-questions" className="label">
             Number of Questions
           </label>
