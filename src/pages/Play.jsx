@@ -3,9 +3,10 @@
 /* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { questions } from "../api/dataQuestion";
-import { Loading } from "../components/Loading";
+import { Loader } from "../components/Loading";
 import { Timer } from "../utils/Timer";
 import { Question } from "../components/Question";
+import { shuffle } from "../utils/shuffle";
 import "./Play.css";
 
 export function Play() {
@@ -34,7 +35,7 @@ export function Play() {
   }, [currQuestion]);
 
   function startUp() {
-    setOption([questions[currQuestion]?.correct_answer, ...questions[currQuestion].incorrect_answers]);
+    setOption(shuffle([questions[currQuestion]?.correct_answer, ...questions[currQuestion].incorrect_answers]));
     start(15);
   }
 
@@ -46,38 +47,40 @@ export function Play() {
   return (
     <>
       <div className="container-play">
-        <nav>
-          <div className="sign">
-            {currQuestion >= questions.length ? (
-              <p>
-                {questions.length}/{questions.length}
-              </p>
-            ) : (
-              <p>
-                {currQuestion + 1}/{questions.length}
-              </p>
-            )}
-          </div>
-          <div>
-            <h2>Quiz</h2>
-          </div>
-          <div className="time">
-            <p>{secondLeft}</p>
-          </div>
-        </nav>
         {questions.length !== 0 ? (
-          <Question
-            question={questions}
-            option={option}
-            currQuestion={currQuestion}
-            onSelect={(value) => {
-              handleSelect(value);
-            }}
-            selectedOption={selectedOption}
-            totalCorrect={totalCorrect}
-          />
+          <>
+            <nav>
+              <div className="sign">
+                {currQuestion >= questions.length ? (
+                  <p>
+                    {questions.length}/{questions.length}
+                  </p>
+                ) : (
+                  <p>
+                    {currQuestion + 1}/{questions.length}
+                  </p>
+                )}
+              </div>
+              <div>
+                <h2>Quiz</h2>
+              </div>
+              <div className="time">
+                <p>{secondLeft}</p>
+              </div>
+            </nav>
+            <Question
+              question={questions}
+              option={option}
+              currQuestion={currQuestion}
+              onSelect={(value) => {
+                handleSelect(value);
+              }}
+              selectedOption={selectedOption}
+              totalCorrect={totalCorrect}
+            />
+          </>
         ) : (
-          <Loading />
+          <Loader />
         )}
       </div>
     </>

@@ -1,5 +1,7 @@
 .container-play {
   height: 100vh;
+  background-color: rgb(16, 17, 33);
+  color: white;
 }
 
 nav {
@@ -7,7 +9,6 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  border-bottom: 1px solid black;
 }
 
 .question-body {
@@ -33,6 +34,7 @@ nav {
 .option-item {
   width: 100%;
   margin: 10px 0;
+  border-radius: 5px;
 }
 
 .option-item button {
@@ -41,13 +43,26 @@ nav {
   font-size: 20px;
   font-weight: 500;
   color: black;
-  background-color: white;
-  box-shadow: 0px 3px 6px 3px rgb(192, 189, 189);
+  background-color: transparent;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  color: white;
+}
+
+.option-item:nth-child(1) {
+  background-color: rgb(98, 98, 255);
+}
+.option-item:nth-child(2) {
+  background-color: rgb(24, 179, 207);
+}
+.option-item:nth-child(3) {
+  background-color: rgb(220, 197, 46);
+}
+.option-item:nth-child(4) {
+  background-color: rgb(210, 44, 116);
 }
 
 button:active {
-  background-color: whitesmoke;
+  background-color: rgb(71, 69, 77);
 }

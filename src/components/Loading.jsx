@@ -1,13 +1,11 @@
-import "./Loading.css";
+/* eslint-disable react/prop-types */
+import ScaleLoader from "react-spinners/ScaleLoader";
+import "./Loader.css";
 
-export function Loading() {
+export function Loader({ loading }) {
   return (
-    <>
-      <div className="loadingio-spinner-rolling-hg29650ta2">
-        <div className="ldio-369is0nsuh2">
-          <div></div>
-        </div>
-      </div>
-    </>
+    <div className="loader">
+      <ScaleLoader height={60} width={10} color="#36d7b7" loading={loading} />
+    </div>
   );
 }
