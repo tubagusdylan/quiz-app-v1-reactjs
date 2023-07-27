@@ -45,7 +45,9 @@ export function Question(props) {
               {option.map((value, index) => {
                 return (
                   <div className="option-item" id={selectedOption && handleStyleOption(value)} key={index}>
-                    <button onClick={() => onSelect(value)}>{value}</button>
+                    <button onClick={() => onSelect(value)} disabled={selectedOption}>
+                      {value}
+                    </button>
                   </div>
                 );
               })}

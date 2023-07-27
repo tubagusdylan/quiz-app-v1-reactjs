@@ -78,3 +78,21 @@
   display: block;
   width: 100%;
 }
+
+footer {
+  color: white;
+  width: 300px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+a:hover {
+  color: rgb(232, 164, 19);
+  text-decoration: underline;
+}

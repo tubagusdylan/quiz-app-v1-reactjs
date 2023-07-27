@@ -52,7 +52,7 @@ export function Home() {
           <label htmlFor="name" className="label">
             Username
           </label>
-          <input type="text" id="name" name="name" className="input-name" onChange={handleUsername} value={username} />
+          <input type="text" id="name" name="name" className="input-name" onChange={handleUsername} value={username} placeholder="Enter your name" />
           <label htmlFor="total-questions" className="label">
             Number of Questions
           </label>
@@ -102,6 +102,9 @@ export function Home() {
           </Link>
         </form>
       </div>
+      <footer>
+        Created by <a href="https://github.com/tubagusdylan">tubagusdylan</a>
+      </footer>
     </div>
   );
 }
