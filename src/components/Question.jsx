@@ -8,7 +8,7 @@ import { questions } from "../api/dataQuestion";
 import { user } from "../api/dataUser";
 
 export function Question(props) {
-  const { question, option, currQuestion, onSelect, selectedOption, totalCorrect, secondLeft } = props;
+  const { question, option, currQuestion, onSelect, selectedOption, totalCorrect, secondLeft, correct } = props;
 
   const [total, setTotal] = useState(totalCorrect);
   const [onShow, setOnShow] = useState(false);
@@ -24,6 +24,16 @@ export function Question(props) {
     setTotal(0);
   }
 
+  function handleStyleOption(value) {
+    if (selectedOption === value && selectedOption === correct) {
+      return "answer-true";
+    } else if (selectedOption === value && selectedOption !== correct) {
+      return "answer-false";
+    } else if (value === correct) {
+      return "answer-true";
+    }
+  }
+
   return (
     <>
       <div className="question-body">
@@ -34,7 +44,7 @@ export function Question(props) {
             <div className="option-container">
               {option.map((value, index) => {
                 return (
-                  <div className="option-item" key={index}>
+                  <div className="option-item" id={selectedOption && handleStyleOption(value)} key={index}>
                     <button onClick={() => onSelect(value)}>{value}</button>
                   </div>
                 );

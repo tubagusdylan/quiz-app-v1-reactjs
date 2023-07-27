@@ -89,6 +89,14 @@ nav h2 {
   background-color: rgb(210, 44, 116);
 }
 
+#answer-true {
+  background-color: rgb(13, 255, 13);
+}
+
+#answer-false {
+  background-color: red;
+}
+
 button:active {
   background-color: rgb(71, 69, 77);
 }

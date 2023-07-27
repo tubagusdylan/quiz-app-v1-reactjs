@@ -28,6 +28,7 @@ export function Play() {
       return () => clearTimeout(timer);
     } else {
       if (currQuestion < questions.length) {
+        setSelectedOption(null);
         startUp();
         selectedOption === questions[currQuestion - 1]?.correct_answer ? setTotalCorrect(totalCorrect + 1) : setTotalCorrect(totalCorrect);
       }
@@ -39,8 +40,11 @@ export function Play() {
   }
 
   function handleSelect(value) {
+    const delay = setTimeout(() => {
+      setCurrQuestion(currQuestion + 1);
+    }, 1000);
     setSelectedOption(value);
-    setCurrQuestion(currQuestion + 1);
+    return () => clearTimeout(delay);
   }
 
   return (
@@ -72,6 +76,7 @@ export function Play() {
               selectedOption={selectedOption}
               totalCorrect={totalCorrect}
               secondLeft={secondLeft}
+              correct={questions[currQuestion]?.correct_answer}
             />
           </div>
         ) : (
