@@ -14,7 +14,7 @@ export function Question(props) {
   const [onShow, setOnShow] = useState(false);
 
   function handleResult() {
-    selectedOption === question[currQuestion - 1].correct_answer ? setTotal(total + 1) : setTotal(total);
+    selectedOption === question[currQuestion - 1]?.correct_answer ? setTotal(total + 1) : setTotal(total);
     setOnShow(true);
   }
 

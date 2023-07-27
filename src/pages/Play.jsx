@@ -29,9 +29,7 @@ export function Play() {
     } else {
       if (currQuestion < questions.length) {
         startUp();
-        if (currQuestion !== 0) {
-          selectedOption === questions[currQuestion - 1].correct_answer ? setTotalCorrect(totalCorrect + 1) : setTotalCorrect(totalCorrect);
-        }
+        selectedOption === questions[currQuestion - 1]?.correct_answer ? setTotalCorrect(totalCorrect + 1) : setTotalCorrect(totalCorrect);
       }
     }
   }, [currQuestion]);
