@@ -6,6 +6,7 @@ import "./Question.css";
 import { Link } from "react-router-dom";
 import { questions } from "../api/dataQuestion";
 import { user } from "../api/dataUser";
+import he from "he";
 
 export function Question(props) {
   const { question, option, currQuestion, onSelect, selectedOption, totalCorrect, secondLeft, correct } = props;
@@ -40,13 +41,13 @@ export function Question(props) {
         {currQuestion < question.length && secondLeft !== 0 ? (
           <>
             <p>Player: {user.name ? user.name : "Unknown"}</p>
-            <h3>{question[currQuestion].question}</h3>
+            <h3>{he.decode(question[currQuestion].question)}</h3>
             <div className="option-container">
               {option.map((value, index) => {
                 return (
                   <div className="option-item" id={selectedOption && handleStyleOption(value)} key={index}>
                     <button onClick={() => onSelect(value)} disabled={selectedOption}>
-                      {value}
+                      {he.decode(value)}
                     </button>
                   </div>
                 );
